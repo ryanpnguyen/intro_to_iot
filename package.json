@@ -1,0 +1,16 @@
+{
+  "name": "intro_to_iot",
+  "version": "1.0.0",
+  "description": "Learning how to make web apps with Node.js!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Nguyen",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.8.8",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
