@@ -2,7 +2,15 @@
 
 <% include ./partials/header %>
 
-<h3 class='ui header'>I am home</h3>
+<form class='ui form' action='/set-color' method='post'>
+	<input type='text' class='two wide field' name='color' value='ffffff'>
+
+	<input type='checkbox' name='options[setAsDefault]'> Set as Default
+	<input type='checkbox' name='options[changeToDefault]'> Change to Default
+	<input type='checkbox' name='options[turnOff]'> Turn Off
+
+	<input type='submit' value='Go!'>
+</form>
 
 <script type="text/javascript" src='/js/home.js'></script>
 
