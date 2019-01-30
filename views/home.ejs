@@ -1,13 +1,18 @@
 <% include ./partials/head %>
-
+<script type="text/javascript" src='/js/jscolor.js'></script>
 <% include ./partials/header %>
 
-<form class='ui form' action='/set-color' method='post'>
-	<input type='text' class='two wide field' name='color' value='ffffff'>
+<form class='ui form' action='/set-color' method='post' id='color-form'>
+	<input type='text' class='jscolor two wide field' name='color' value='ffffff'>
 
-	<input type='checkbox' name='options[setAsDefault]'> Set as Default
-	<input type='checkbox' name='options[changeToDefault]'> Change to Default
-	<input type='checkbox' name='options[turnOff]'> Turn Off
+	<input type='checkbox' name='options[setAsDefault]' id='set-as-default' hidden>
+	<input type='checkbox' name='options[changeToDefault]' id='change-to-default' hidden>
+	<input type='checkbox' name='options[turnOff]' id='turn-off' hidden> 
+
+	<div class='ui submit button' id='change-color' onclick='submit()'> Change Color</div>
+	<div class='ui submit button' onclick='submit(true)'> Set As Default</div>
+	<div class='ui submit button' onclick='submit(false)'> Change To Default</div>
+	<div class='ui submit button' onclick='submit(false, false, true)'> Turn Off</div>
 
 	<input type='submit' value='Go!'>
 </form>
