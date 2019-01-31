@@ -5,7 +5,6 @@ dotenv.load();
 
 mongoose.set('debug', true);
 mongoose.connect(process.env.DATABASE);
-console.log(process.env.DATABASE);
 mongoose.promise = Promise;
 
 module.exports.Settings = require('./settings');
