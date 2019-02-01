@@ -19,7 +19,41 @@
 </form>
 
 <!-- DASHBOARD -->
+<div class='ui raised padded segment'>
+	<h2 class='ui header centered'>Analytics Dashboard</h2>
 
+	<div class='ui three small grey statistics'>
+		<div class='statistic'>
+			<div class='value'>
+				30 &degC
+			</div>
+			<div class='label'>
+				Avg Temperature
+			</div>
+		</div>
+
+		<div class='statistic'>
+			<div class='value'>
+				60%
+			</div>
+			<div class='label'>
+				Avg Humidity
+			</div>
+		</div>
+
+		<div class='statistic'>
+			<div class='value'>
+				426/1023
+			</div>
+			<div class='label'>
+				Avg Brightness
+			</div>
+		</div>
+	</div> <!-- END STATS -->
+
+	<canvas id='temperature-chart' height='250'></canvas>
+
+</div>
 
 <!-- CONFIG FORM -->
 <form class='ui form' action='/configure' method='post'>
