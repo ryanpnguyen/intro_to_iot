@@ -9,6 +9,21 @@ var settingsSchema = new mongoose.Schema({
 	},
 	lightIsOn: {
 		type: Boolean
+	},
+	hotThreshold: {
+		type: Number
+	},
+	coldThreshold: {
+		type: Number
+	},
+	humidThreshold: {
+		type: Number
+	},
+	dryThreshold: {
+		type: Number
+	},
+	darkThreshold: {
+		type: Number
 	}
 });
 

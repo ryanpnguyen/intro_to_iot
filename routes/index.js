@@ -4,7 +4,11 @@ var express		=require('express'),
 
 
 router.get('/', (req, res) => {
-	res.render('home');
+
+	db.Settings.findOne({})
+	.then( function(result){
+		res.render('home', {settings: result});	
+	});
 });
 
 router.get('/details', (req, res) => {
@@ -33,6 +37,18 @@ router.post('/set-color', (req, res) =>{
 
 		return db.Settings.findOneAndUpdate({}, setting, {'new': true, upsert: true})
 	})
+	.then( function(edited){
+		console.log(edited);
+		res.redirect('/');
+	})
+	.catch( function(err){
+		res.send(err);
+	});
+});
+
+
+router.post('/configure', (req, res) =>{
+	db.Settings.findOneAndUpdate({}, req.body.setting, {'new': true, upsert: true})
 	.then( function(edited){
 		console.log(edited);
 		res.redirect('/');
