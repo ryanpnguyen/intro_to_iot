@@ -14,11 +14,20 @@ router.get('/', (req, res) => {
 		return db.Stats.findOne()
 	})
 	.then( function(statResult){
-		console.log('stats found');
+		
+		var timeInHot = statResult.timeInHot/statResult.timeTotal;
+		var timeInCold = statResult.timeInCold/statResult.timeTotal;
+		var timeInHumid = statResult.timeInHumid/statResult.timeTotal;
+		var timeInDry = statResult.timeInDry/statResult.timeTotal;
+		var timeOn = statResult.timeOn/statResult.timeTotal;
+
 		var stats = {
 			avgTemperature: statResult.avgTemperature.toFixed(2),
 			avgHumidity: statResult.avgHumidity.toFixed(2),
-			avgBrightness: statResult.avgBrightness
+			avgBrightness: statResult.avgBrightness,
+			temperatureData: [timeInHot, 1-timeInHot-timeInCold, timeInCold],
+			humidityData: [timeInHumid, 1-timeInHumid-timeInDry, timeInDry],
+			onData: [timeOn, 1-timeOn]
 		};
 
 		res.render('home', {settings: setting, stats: stats});

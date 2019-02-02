@@ -2,6 +2,7 @@
 <script type="text/javascript" src='/js/jscolor.js'></script>
 <% include ./partials/header %>
 
+<a id='stats-generator' onclick='analyse([<%= stats.temperatureData %>], [<%= stats.humidityData %>], [<%= stats.onData %>])' hidden</a> 
 <!-- COLOR FORM -->
 <form class='ui form' action='/set-color' method='post' id='color-form'>
 	<input type='text' class='jscolor two wide field' name='color' value='<%= settings.lightColor %>'>
@@ -54,17 +55,17 @@
 	<div class='ui grid'>
 		<div class='three column row'>
 			<div class='column'>
-				<canvas id='temperature-chart' height='250'></canvas>
+				<canvas id='temperature-chart'></canvas>
 				<h4 class='ui centered header'>Temperature Zones</h4>
 			</div>
 
 			<div class='column'>
-				<canvas id='humidity-chart' height='250'></canvas>
+				<canvas id='humidity-chart'></canvas>
 				<h4 class='ui centered header'>Humidity Zones</h4>
 			</div>
 
 			<div class='column'>
-				<canvas id='on-chart' height='250'></canvas>
+				<canvas id='on-chart'></canvas>
 				<h4 class='ui centered header'>Time On</h4>
 			</div>
 		</div>
