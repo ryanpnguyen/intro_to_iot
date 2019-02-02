@@ -26,7 +26,8 @@ function submit(setDefault=false, useDefault=false, turnOff=false){
 
 var	data = {
     datasets: [{
-        data: [10, 20, 30]
+        data: [10, 20, 30],
+        backgroundColor: ['#99ff99', '#ffce56', '#123412']
     }],
 
     // These labels appear in the legend and in the tooltips when hovering different arcs
@@ -41,5 +42,31 @@ var ctx = document.getElementById('temperature-chart');
 var myDoughnutChart = new Chart(ctx, {
     type: 'doughnut',
     data: data,
-    // options: options
+    options: {
+    	legend: {
+    		display: false,
+    	}
+    }
+});
+
+var hCtx = document.getElementById('humidity-chart');
+var myDoughnutChart = new Chart(hCtx, {
+    type: 'doughnut',
+    data: data,
+    options: {
+    	legend: {
+    		display: false,
+    	}
+    }
+});
+
+var onCtx = document.getElementById('on-chart');
+var myDoughnutChart = new Chart(onCtx, {
+    type: 'doughnut',
+    data: data,
+    options: {
+    	legend: {
+    		display: false,
+    	}
+    }
 });

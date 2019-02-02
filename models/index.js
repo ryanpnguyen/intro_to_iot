@@ -8,3 +8,4 @@ mongoose.connect(process.env.DATABASE);
 mongoose.promise = Promise;
 
 module.exports.Settings = require('./settings');
+module.exports.Stats	= require('./statistics');

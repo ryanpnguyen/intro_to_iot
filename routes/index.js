@@ -5,10 +5,27 @@ var express		=require('express'),
 
 router.get('/', (req, res) => {
 
+	var setting;
+
 	db.Settings.findOne({})
 	.then( function(result){
-		res.render('home', {settings: result});	
-	});
+		console.log('settings found')
+		setting = result;
+		return db.Stats.findOne()
+	})
+	.then( function(statResult){
+		console.log('stats found');
+		var stats = {
+			avgTemperature: statResult.avgTemperature.toFixed(2),
+			avgHumidity: statResult.avgHumidity.toFixed(2),
+			avgBrightness: statResult.avgBrightness
+		};
+
+		res.render('home', {settings: setting, stats: stats});
+	})
+	.catch( function(err){
+		res.send(err);
+	})
 });
 
 router.get('/details', (req, res) => {
@@ -57,5 +74,28 @@ router.post('/configure', (req, res) =>{
 		res.send(err);
 	});
 });
+
+router.get('/seedStats', (req, res) =>{
+	var seed ={
+		avgTemperature: 32,
+		avgHumidity: 11,
+		avgBrightness: 721,
+		timeInHot: 20,
+		timeInCold: 60,
+		timeInDry: 80,
+		timeInHumid: 8,
+		timeOn: 59,
+		timeTotal: 100
+	}
+
+	db.Stats.findOneAndUpdate({}, seed, {'new': true, upsert: true})
+	.then( function(stats){
+		console.log(stats);
+		res.redirect('/');
+	})
+	.catch( function(err){
+		res.send(err);
+	})
+})
 
 module.exports = router;

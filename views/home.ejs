@@ -25,7 +25,7 @@
 	<div class='ui three small grey statistics'>
 		<div class='statistic'>
 			<div class='value'>
-				30 &degC
+				<%= stats.avgTemperature %> &degC
 			</div>
 			<div class='label'>
 				Avg Temperature
@@ -34,7 +34,7 @@
 
 		<div class='statistic'>
 			<div class='value'>
-				60%
+				<%= stats.avgHumidity %> %
 			</div>
 			<div class='label'>
 				Avg Humidity
@@ -43,7 +43,7 @@
 
 		<div class='statistic'>
 			<div class='value'>
-				426/1023
+				<%= stats.avgBrightness %> / 1023
 			</div>
 			<div class='label'>
 				Avg Brightness
@@ -51,11 +51,29 @@
 		</div>
 	</div> <!-- END STATS -->
 
-	<canvas id='temperature-chart' height='250'></canvas>
+	<div class='ui grid'>
+		<div class='three column row'>
+			<div class='column'>
+				<canvas id='temperature-chart' height='250'></canvas>
+				<h4 class='ui centered header'>Temperature Zones</h4>
+			</div>
+
+			<div class='column'>
+				<canvas id='humidity-chart' height='250'></canvas>
+				<h4 class='ui centered header'>Humidity Zones</h4>
+			</div>
+
+			<div class='column'>
+				<canvas id='on-chart' height='250'></canvas>
+				<h4 class='ui centered header'>Time On</h4>
+			</div>
+		</div>
+	</div>
 
 </div>
 
 <!-- CONFIG FORM -->
+<h3 class='ui centered header'>Configuration</h3>
 <form class='ui form' action='/configure' method='post'>
 	<div class='fields'>
 		<div class='four wide field'>
