@@ -2,14 +2,13 @@
 
 <% include ./partials/header %>
 
-<%= data %>
 
 <a id='convert-times' onclick='convertTimes([<%= times %>])' hidden></a>
 
 <div class='my ui three small grey statistics'>
 		<div class='statistic'>
 			<div class='value'>
-				kk
+				<%- Math.min(...temperature) %> - <%= Math.max(...temperature) %> &deg C
 			</div>
 			<div class='label'>
 				Temperature
@@ -18,7 +17,7 @@
 
 		<div class='statistic'>
 			<div class='value'>
-				kk
+				<%- Math.min(...humidity) %> - <%= Math.max(...humidity) %> %
 			</div>
 			<div class='label'>
 				Humidity
@@ -27,7 +26,7 @@
 
 		<div class='statistic'>
 			<div class='value'>
-				kk
+				<%- Math.min(...brightness) %> - <%= Math.max(...brightness) %> /1023
 			</div>
 			<div class='label'>
 				Brightness
