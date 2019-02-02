@@ -38,7 +38,30 @@ router.get('/', (req, res) => {
 });
 
 router.get('/details', (req, res) => {
-	res.render('details');
+	db.Data.find().limit(24).sort({timestamp: -1})
+	.then( function(data){
+		var times = [];
+		var temperatures = [];
+		var humidities = [];
+		var brightnesses = [];
+
+		data.forEach( function(reading){
+			times.push("'" + reading.timestamp + "'");
+			temperatures.push(reading.temperature);
+			humidities.push(reading.humidity);
+			brightnesses.push(reading.brightness);
+		});
+
+		res.render('details', {data: data,
+								temperature: temperatures.reverse(),
+								humidity: humidities.reverse(),
+								brightness: brightnesses.reverse(),
+								times: times.reverse()
+		});
+	})
+	.catch( function(err){
+		res.send(err);
+	});
 }); 
 
 router.post('/set-color', (req, res) =>{
@@ -83,6 +106,22 @@ router.post('/configure', (req, res) =>{
 		res.send(err);
 	});
 });
+
+router.get('/seed/:temp/:hum/:bright', (req, res) => {
+	var seed = {
+		temperature: req.params.temp,
+		humidity: req.params.hum,
+		brightness: req.params.bright
+	}
+
+	db.Data.create(seed)
+	.then( function(newData){
+		res.redirect('/details');
+	})
+	.catch( function(err){
+		res.send(err);
+	})
+})
 
 router.get('/seedStats', (req, res) =>{
 	var seed ={
