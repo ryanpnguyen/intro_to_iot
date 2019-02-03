@@ -17,18 +17,18 @@ router.route('/data')
 	.post(dataHelpers.createData)
 	.delete(dataHelpers.deleteData);
 
-// router.route('/data/:id')
-// 	.get()
-// 	.post()
-// 	.delete();
+router.route('/data/:id')
+	.get(dataHelpers.getOneData)
+	.post(dataHelpers.editData)
+	.delete(dataHelpers.deleteOneData);
 
-// router.route('/settings')
-// 	.get()
-// 	.put();
+router.route('/settings')
+	.get()
+	.put();
 
-// router.route('/statistics')
-// 	.get()
-// 	.put()
-// 	.delete();
+router.route('/statistics')
+	.get()
+	.put()
+	.delete(statsHelpers.resetStats);
 
 module.exports = router;
