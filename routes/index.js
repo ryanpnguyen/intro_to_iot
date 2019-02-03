@@ -107,43 +107,43 @@ router.post('/configure', (req, res) =>{
 	});
 });
 
-router.get('/seed/:temp/:hum/:bright', (req, res) => {
-	var seed = {
-		temperature: req.params.temp,
-		humidity: req.params.hum,
-		brightness: req.params.bright
-	}
+// router.get('/seed/:temp/:hum/:bright', (req, res) => {
+// 	var seed = {
+// 		temperature: req.params.temp,
+// 		humidity: req.params.hum,
+// 		brightness: req.params.bright
+// 	}
 
-	db.Data.create(seed)
-	.then( function(newData){
-		res.redirect('/details');
-	})
-	.catch( function(err){
-		res.send(err);
-	})
-})
+// 	db.Data.create(seed)
+// 	.then( function(newData){
+// 		res.redirect('/details');
+// 	})
+// 	.catch( function(err){
+// 		res.send(err);
+// 	})
+// })
 
-router.get('/seedStats', (req, res) =>{
-	var seed ={
-		avgTemperature: 32,
-		avgHumidity: 11,
-		avgBrightness: 721,
-		timeInHot: 20,
-		timeInCold: 60,
-		timeInDry: 80,
-		timeInHumid: 8,
-		timeOn: 59,
-		timeTotal: 100
-	}
+// router.get('/seedStats', (req, res) =>{
+// 	var seed ={
+// 		avgTemperature: 32,
+// 		avgHumidity: 11,
+// 		avgBrightness: 721,
+// 		timeInHot: 20,
+// 		timeInCold: 60,
+// 		timeInDry: 80,
+// 		timeInHumid: 8,
+// 		timeOn: 59,
+// 		timeTotal: 100
+// 	}
 
-	db.Stats.findOneAndUpdate({}, seed, {'new': true, upsert: true})
-	.then( function(stats){
-		console.log(stats);
-		res.redirect('/');
-	})
-	.catch( function(err){
-		res.send(err);
-	})
-})
+// 	db.Stats.findOneAndUpdate({}, seed, {'new': true, upsert: true})
+// 	.then( function(stats){
+// 		console.log(stats);
+// 		res.redirect('/');
+// 	})
+// 	.catch( function(err){
+// 		res.send(err);
+// 	})
+// })
 
 module.exports = router;
