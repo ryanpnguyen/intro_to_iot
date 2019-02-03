@@ -13,7 +13,7 @@ exports.resetStats = function(req,res) {
 		'timeTotal': 0
 	}
 
-	db.Stats.findOneAndUpdate({}, black, {'new': true, upsert: true})
+	db.Stats.findOneAndUpdate({}, blank, {'new': true, upsert: true})
 	.then( function(wipedStats) {
 		res.json(wipedStats);
 	})
