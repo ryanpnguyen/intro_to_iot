@@ -10,7 +10,7 @@
   "engines":{
     "node": "11.6.0",
     "npm": "6.5.0"
-  }
+  },
   "author": "Ryan Nguyen",
   "license": "ISC",
   "dependencies": {
