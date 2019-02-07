@@ -20,7 +20,7 @@ var statsSchema = new mongoose.Schema({
 	timeInDry: {
 		type: Number
 	},
-	timeInHumid: {
+	timeInHumid: {	
 		type: Number
 	},
 	timeOn: {
