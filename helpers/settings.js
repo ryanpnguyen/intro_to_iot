@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var db	= require('../models');
 
 exports.getSettings = function(req, res) {
@@ -19,3 +20,5 @@ exports.editSettings = function(req, res) {
 		res.send(err);
 	});
 }
+=======
+>>>>>>> parent of ac165ab... Finished app!
