@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 var db	= require('../models');
 
 exports.getSettings = function(req, res) {
