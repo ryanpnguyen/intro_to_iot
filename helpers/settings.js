@@ -23,3 +23,5 @@ exports.editSettings = function(req, res) {
 }
 =======
 >>>>>>> parent of ac165ab... Finished app!
+=======
+>>>>>>> parent of ac165ab... Finished app!
