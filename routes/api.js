@@ -23,12 +23,12 @@ router.route('/data/:id')
 	.delete(dataHelpers.deleteOneData);
 
 router.route('/settings')
-	.get()
-	.put();
+	.get(settingsHelpers.getSettings)
+	.put(settingsHelpers.editSettings);
 
 router.route('/statistics')
-	.get()
-	.put()
+	.get(statsHelpers.getStats)
+	.put(statsHelpers.editStats)
 	.delete(statsHelpers.resetStats);
 
 module.exports = router;
