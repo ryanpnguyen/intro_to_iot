@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-var db	= require('../models');
-
 exports.getSettings = function(req, res) {
 	db.Settings.findOne({})
 	.then( function(settings) {
@@ -21,7 +17,3 @@ exports.editSettings = function(req, res) {
 		res.send(err);
 	});
 }
-=======
->>>>>>> parent of ac165ab... Finished app!
-=======
->>>>>>> parent of ac165ab... Finished app!
